@@ -7,10 +7,9 @@ import requests
 def home():
     return "Hello, World!"
     
-def json_parse(request):
-	req_data = request.get_json()
-	client_id = req_data['client_id']
-	client_secret = req_data['client_secret']
+def json_parse(json_object):
+    client_id = json_object['client_id']
+    client_secret = json_object['client_secret']
     
     return client_id, client_secret
 
@@ -25,7 +24,7 @@ def get_sas_token():
     
     resource = 'https://'+storage_account+'.blob.core.windows.net'
     
-    application_id ,application_secret = json_parse(request)
+    application_id ,application_secret = json_parse(request.get_json())
 
     # get an Azure access token using the adal library
     context = adal.AuthenticationContext(authentication_endpoint + tenant_id)
