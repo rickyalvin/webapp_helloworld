@@ -1,7 +1,7 @@
 from flask import Flask
 app = Flask(__name__)
-# import requests
-# import json
+import requests
+import json
 
 @app.route("/",  methods = ['GET'])
 def home():
