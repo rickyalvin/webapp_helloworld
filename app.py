@@ -27,4 +27,4 @@ def home():
 
 
 
-app.run()
+# app.run()
