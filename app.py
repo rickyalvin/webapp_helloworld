@@ -3,7 +3,7 @@ app = Flask(__name__)
 import requests
 import json
 
-@app.route("/")
+@app.route("/home",  methods = ['GET'])
 def hello():
     return "Hello, World!"
 
@@ -17,7 +17,7 @@ def auth_check():
     
     
 
-@app.route('/auth' methods = ['POST'])
+@app.route('/auth', methods = ['POST'])
 def get_sas_token():
     
     access_token = auth_check()
