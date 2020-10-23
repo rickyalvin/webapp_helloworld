@@ -3,8 +3,8 @@ app = Flask(__name__)
 import requests
 import json
 
-@app.route("/home",  methods = ['GET'])
-def hello():
+@app.route("/",  methods = ['GET'])
+def home():
     return "Hello, World!"
 
 
