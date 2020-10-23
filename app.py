@@ -25,6 +25,6 @@ def get_sas_token():
         return 'it worked!'
     return 'failed'
 
-    
 
-    
+if __name__ == '__main__':
+    app.run()
