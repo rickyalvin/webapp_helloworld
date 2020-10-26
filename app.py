@@ -2,7 +2,7 @@ from flask import Flask, request
 app = Flask(__name__)
 import requests
 import config
-# from azure.storage.blob import BlobServiceClient, generate_container_sas, ResourceTypes, AccountSasPermissions, generate_account_sas
+from azure.storage.blob import BlobServiceClient, generate_container_sas, ResourceTypes, AccountSasPermissions, generate_account_sas
 from datetime import datetime, timedelta
 
 
