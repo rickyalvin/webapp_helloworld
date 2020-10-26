@@ -46,19 +46,21 @@ def get_sas_token():
 
     # get an Azure access token using the adal library
     context = adal.AuthenticationContext(config.AUTHENTICATION_ENDPOINT + config.TENANT_ID)
-    token_response = context.acquire_token_with_client_credentials(resource, application_id, application_secret)
-
-    access_token = token_response.get('accessToken')
+    try:
+        token_response = context.acquire_token_with_client_credentials(resource, application_id, application_secret)
+        access_token = token_response.get('accessToken')
+    except:
+        return 'wrong id or password'
 
     #access_token = auth_check() 
     ## if yes: generate the sas token
-    if access_token != '':
-        try: 
-            sas_token = generate_token()
-        except:
-            return 'wrong id or password'
-        return sas_token
-    return 'wrong id or password'
+
+    try: 
+        sas_token = generate_token()
+    except:
+        return 'cannot generate the sas token'
+    return sas_token
+
 
 # if __name__ == '__main__':
 #     app.run()
