@@ -18,6 +18,12 @@ def json_parse(json_object):
 
 def generate_token():
     blob_service_client = BlobServiceClient(account_url=config.URL, credential=config.SHARED_KEY)
+    
+    try: 
+        for i in blob_service_client.list_containers():
+            continue
+    except:
+        return 'cannot generate the sas token'
     container_client = blob_service_client.get_container_client("mycontainer")
 
     # container_token = generate_container_sas(
